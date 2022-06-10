@@ -1,0 +1,20 @@
+{
+    "name": "hexlet/code",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Egor Rasskazov",
+            "email": "rasskazov.note@gmail.com"
+        }
+    ],
+    "description": "educational project hexlet php-project-lvl1",
+    "license": "proprietary",
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
+}
