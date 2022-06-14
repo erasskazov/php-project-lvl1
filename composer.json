@@ -13,11 +13,14 @@
         }
     ],
     "description": "educational project hexlet php-project-lvl1",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "wp-cli/php-cli-tools": "^0.11.13"
     },
     "bin": [
         "bin/brain-games"
-    ]
+    ],
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
+    }
 }
