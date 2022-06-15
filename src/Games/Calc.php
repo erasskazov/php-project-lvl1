@@ -4,15 +4,16 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Engine\startGame;
 
-function generateQuestionCalc($numberOfRounds = 3)
+function generateQuestionCalc()
 {
     $operators = ['+', '-', '*'];
     return [rand(0, 50), $operators[rand(0, 2)], rand(0, 50)];
 }
 
-function getCorrectAnswerCalc($question)
+function getCorrectAnswerCalc(array $question)
 {
     [$a, $operator, $b] = $question;
+    $answer = null;
     switch ($operator) {
         case '+':
             $answer = $a + $b;
@@ -26,7 +27,7 @@ function getCorrectAnswerCalc($question)
     return $answer;
 }
 
-function generateDataCalc($numberOfRounds = 3)
+function generateDataCalc(int $numberOfRounds = 3)
 {
     $questions = [];
     $answers = [];

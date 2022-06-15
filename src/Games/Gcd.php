@@ -10,7 +10,7 @@ function generateQuestionGcd()
     return [rand(1, 100), rand(1, 100)];
 }
 
-function calcGcd($a, $b)
+function calcGcd(int $a, int $b)
 {
     if ($a < $b) {
         $currentDivider = $a;
@@ -26,7 +26,7 @@ function calcGcd($a, $b)
     return $currentDivider;
 }
 
-function generateDataGcd($numberOfRounds = 3)
+function generateDataGcd(int $numberOfRounds = 3)
 {
     $questions = [];
     $answers = [];
@@ -36,13 +36,14 @@ function generateDataGcd($numberOfRounds = 3)
         $answers[] = GcdCalcGcd($a, $b);
     }
     $stringQuestions = [];
+    $stringAnswers = [];
     foreach ($questions as $question) {
         $stringQuestions[] = implode(' ', $question);
     }
     return [$stringQuestions, $answers];
 }
 
-function getCorrectAnswerGcd($questions)
+function getCorrectAnswerGcd(array $questions)
 {
     $answers = [];
     foreach ($questions as [$a, $b]) {

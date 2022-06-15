@@ -9,12 +9,12 @@ function generateQuestionEven()
     return rand(0, 50);
 }
 
-function getCorrectAnswerEven($question)
+function getCorrectAnswerEven(int $question)
 {
     return ($question % 2 === 0) ? 'yes' : 'no';
 }
 
-function generateDataEven($numberOfRounds = 3)
+function generateDataEven(int $numberOfRounds = 3)
 {
     $questions = [];
     $answers = [];

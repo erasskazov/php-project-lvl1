@@ -8,7 +8,7 @@ use function cli\prompt;
 function greetings()
 {
     line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?', false, ' ');
+    $name = prompt('May I have your name?');
     line("Hello, {$name}!");
     return $name;
 }
@@ -19,12 +19,12 @@ function getPlayerAnswer()
     return $answer;
 }
 
-function isCorrect($playerAnswer, $correctAnswer)
+function isCorrect(string $playerAnswer, $correctAnswer)
 {
     return ($playerAnswer === $correctAnswer);
 }
 
-function startGame($questionMessage, $questions, $correctAnswers, $numberOfRounds = 3)
+function startGame(string $questionMessage, array $questions, array $correctAnswers, int $numberOfRounds = 3)
 {
     $name = greetings();
     line($questionMessage);
@@ -32,7 +32,8 @@ function startGame($questionMessage, $questions, $correctAnswers, $numberOfRound
     for ($i = 0; $i < $numberOfRounds; $i++) {
         line("Question: {$questions[$i]}");
         $playerAnswer = getPlayerAnswer();
-        if (isCorrect($playerAnswer, (string) $correctAnswers[$i])) {
+        $correctAnswer = (string) ($correctAnswers[$i]);
+        if (isCorrect($playerAnswer, $correctAnswer)) {
             line("Correct!");
         } else {
             line("'{$playerAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers[$i]}'");

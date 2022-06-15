@@ -9,7 +9,7 @@ function generateQuestionPrime($numberOfRounds = 3)
     return rand(0, 100);
 }
 
-function isPrime($number)
+function isPrime(int $number)
 {
     if ($number === 1 || $number === 0) {
         return false;
@@ -23,7 +23,7 @@ function isPrime($number)
     return true;
 }
 
-function generateDataPrime($numberOfRounds = 3)
+function generateDataPrime(int $numberOfRounds = 3)
 {
     $questions = [];
     $answers = [];

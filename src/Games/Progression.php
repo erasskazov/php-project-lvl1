@@ -26,7 +26,7 @@ function generateQuestionProgression()
     return [$question, $answer];
 }
 
-function generateDataGcd($numberOfRounds = 3)
+function generateDataGcd(int $numberOfRounds = 3)
 {
     $questions = [];
     $answers = [];
