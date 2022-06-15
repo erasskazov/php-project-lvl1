@@ -44,6 +44,6 @@ function generateDataCalc($numberOfRounds = 3)
 function startCalcGame()
 {
     $questionMessage = 'What is the result of the expression?';
-    [$questions, $answers] = generateData();
+    [$questions, $answers] = generateDataCalc();
     startGame($questionMessage, $questions, $answers);
 }
