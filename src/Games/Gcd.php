@@ -3,14 +3,11 @@
 namespace BrainGames\Games\Gcd;
 
 use function BrainGames\Engine\startGame;
+use function BrainGames\Games\Gcd\calcGcd as GcdCalcGcd;
 
-function generateQuestionGcd($numberOfRounds = 3)
+function generateQuestionGcd()
 {
-    $questions = [];
-    for ($i = 0; $i < $numberOfRounds; $i++) {
-        $questions[] = [rand(1, 100), rand(1, 100)];
-    }
-    return $questions;
+    return [rand(1, 100), rand(1, 100)];
 }
 
 function calcGcd($a, $b)
@@ -29,6 +26,22 @@ function calcGcd($a, $b)
     return $currentDivider;
 }
 
+function generateDataGcd($numberOfRounds = 3)
+{
+    $questions = [];
+    $answers = [];
+    for ($i = 0; $i < $numberOfRounds; $i++) {
+        $questions[] = generateQuestionGcd();
+        [$a, $b] = $questions[$i];
+        $answers[] = GcdCalcGcd($a, $b);
+    }
+    $stringQuestions = [];
+    foreach ($questions as $question) {
+        $stringQuestions[] = implode(' ', $question);
+    }
+    return [$stringQuestions, $answers];
+}
+
 function getCorrectAnswerGcd($questions)
 {
     $answers = [];
@@ -41,12 +54,6 @@ function getCorrectAnswerGcd($questions)
 function startGcdGame()
 {
     $questionMessage = 'Find the greatest common divisor of given numbers.';
-    $questions = generateQuestionGcd();
-    $correctAnswers = getCorrectAnswerGcd($questions);
-    $stringQuestions = [];
-    $stringAnswers = [];
-    foreach ($questions as $question) {
-        $stringQuestions[] = implode(" ", $question);
-    }
-    startGame($questionMessage, $stringQuestions, $correctAnswers);
+    [$questions, $answers] = generateDataGcd();
+    startGame($questionMessage, $questions, $answers);
 }

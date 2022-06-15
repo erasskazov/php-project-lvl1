@@ -13,7 +13,7 @@ function greetings()
     return $name;
 }
 
-function getAnswer()
+function getPlayerAnswer()
 {
     $answer = prompt("Your answer");
     return $answer;
@@ -31,7 +31,7 @@ function startGame($questionMessage, $questions, $correctAnswers, $numberOfRound
 
     for ($i = 0; $i < $numberOfRounds; $i++) {
         line("Question: {$questions[$i]}");
-        $playerAnswer = getAnswer();
+        $playerAnswer = getPlayerAnswer();
         if (isCorrect($playerAnswer, (string) $correctAnswers[$i])) {
             line("Correct!");
         } else {

@@ -4,28 +4,30 @@ namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\startGame;
 
-function generateQuestionEven($numberOfRounds = 3)
+function generateQuestionEven()
 {
-    $questions = [];
-    for ($i = 0; $i < $numberOfRounds; $i++) {
-        $questions[] = rand(0, 50);
-    }
-    return $questions;
+    return rand(0, 50);
 }
 
-function getCorrectAnswerEven($questions, $numberOfRounds = 3)
+function getCorrectAnswerEven($question)
 {
+    return ($question % 2 === 0) ? 'yes' : 'no';
+}
+
+function generateDataEven($numberOfRounds = 3)
+{
+    $questions = [];
     $answers = [];
     for ($i = 0; $i < $numberOfRounds; $i++) {
-        $answers[] = ($questions[$i] % 2 === 0) ? 'yes' : 'no';
+        $questions[] = generateQuestionEven();
+        $answers[] = getCorrectAnswerEven($questions[$i]);
     }
-    return $answers;
+    return [$questions, $answers];
 }
 
 function startEvenGame()
 {
     $questionMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $questions = generateQuestionEven();
-    $correctAnswers = getCorrectAnswerEven($questions);
-    startGame($questionMessage, $questions, $correctAnswers);
+    [$questions, $answers] = generateDataEven();
+    startGame($questionMessage, $questions, $answers);
 }
