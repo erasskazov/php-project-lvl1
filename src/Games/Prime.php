@@ -10,7 +10,7 @@ function generateQuestionPrime($numberOfRounds = 3)
 }
 
 function isPrime($number)
-{   
+{
     if ($number === 1 || $number === 0) {
         return false;
     }
