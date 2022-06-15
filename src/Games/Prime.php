@@ -4,7 +4,7 @@ namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\startGame;
 
-function generateQuestionPrime($numberOfRounds = 3)
+function generateQuestionPrime(int $numberOfRounds = 3)
 {
     return rand(0, 100);
 }

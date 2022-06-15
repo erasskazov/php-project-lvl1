@@ -19,7 +19,7 @@ function getPlayerAnswer()
     return $answer;
 }
 
-function isCorrect(string $playerAnswer, $correctAnswer)
+function isCorrect(string $playerAnswer, string $correctAnswer)
 {
     return ($playerAnswer === $correctAnswer);
 }
