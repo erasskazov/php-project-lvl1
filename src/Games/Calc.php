@@ -15,15 +15,15 @@ function getCorrectAnswerCalc($question)
     [$a, $operator, $b] = $question;
     switch ($operator) {
         case '+':
-            $answers[] = $a + $b;
+            $answer = $a + $b;
             break;
         case '-':
-            $answers[] = $a - $b;
+            $answer = $a - $b;
             break;
         case '*':
-            $answers[] = $a * $b;
+            $answer = $a * $b;
     }
-    return $answers;
+    return $answer;
 }
 
 function generateDataCalc($numberOfRounds = 3)
