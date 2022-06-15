@@ -32,7 +32,7 @@ function startGame($questionMessage, $questions, $correctAnswers, $numberOfRound
     for ($i = 0; $i < $numberOfRounds; $i++) {
         line("Question: {$questions[$i]}");
         $playerAnswer = getAnswer();
-        if (isCorrect($playerAnswer, $correctAnswers[$i])) {
+        if (isCorrect($playerAnswer, (string) $correctAnswers[$i])) {
             line("Correct!");
         } else {
             line("'{$playerAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers[$i]}'");

@@ -14,7 +14,7 @@ function generateQuestionCalc($numberOfRounds = 3)
     return $questions;
 }
 
-function getCorrectAnswerCalc($questions, $numberOfRounds = 3)
+function getCorrectAnswerCalc($questions)
 {
     $answers = [];
     foreach ($questions as [$a, $operator, $b]) {
@@ -38,12 +38,8 @@ function startCalcGame()
     $questions = generateQuestionCalc();
     $correctAnswers = getCorrectAnswerCalc($questions);
     $stringQuestions = [];
-    $stringAnswers = [];
     foreach ($questions as $question) {
         $stringQuestions[] = implode($question);
     }
-    foreach ($correctAnswers as $answer) {
-        $stringAnswers[] = (string) $answer;
-    }
-    startGame($questionMessage, $stringQuestions, $stringAnswers);
+    startGame($questionMessage, $stringQuestions, $correctAnswers);
 }
