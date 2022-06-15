@@ -36,7 +36,7 @@ function generateDataCalc($numberOfRounds = 3)
     }
     $stringQuestions = [];
     foreach ($questions as $question) {
-        $stringQuestions[] = implode('', $question);
+        $stringQuestions[] = implode(' ', $question);
     }
     return [$stringQuestions, $answers];
 }
